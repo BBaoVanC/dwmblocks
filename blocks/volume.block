@@ -1,0 +1,24 @@
+#!/bin/sh
+
+case $BUTTON in
+    1) st -c st-floating -e pulsemixer ;;
+    3) audioctl toggle ;;
+    6) st -e "$EDITOR" "$0" ;;
+esac
+
+vol=$(pamixer --get-volume)
+
+if [ "$(pamixer --get-mute)" = "true" ]; then
+    echo "婢 $vol%"
+else
+    volrng="$((vol / 50))"
+    case $volrng in
+        0)
+            [ "$vol" = 0 ] && volicon="奄" || volicon="奔"
+            ;;
+        *)
+            volicon="墳"
+            ;;
+    esac
+    echo "$volicon $vol%"
+fi

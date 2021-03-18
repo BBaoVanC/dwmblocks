@@ -1,0 +1,37 @@
+#!/bin/sh
+
+case $BUTTON in
+    6) st -e "$EDITOR" "$0" ;;
+esac
+
+if [ -e /sys/class/power_supply/BAT?* ]; then
+    for battery in /sys/class/power_supply/BAT?*; do
+        status=$(cat "$battery/status")
+        case "$status" in
+            "Full") status="" ;;
+            "Discharging") status="" ;;
+            "Charging") status="" ;;
+            "Not charging") status="" ;;
+            "Unknown") status="" ;;
+        esac
+        capacity=$(cat "$battery/capacity")
+        if [ "$status" = "" ]; then
+            caprange="$((capacity / 10))"
+            case "$caprange" in
+                9) status="" ;;
+                8) status="" ;;
+                7) status="" ;;
+                6) status="" ;;
+                5) status="" ;;
+                4) status="" ;;
+                3) status="" ;;
+                2) status="" ;;
+                1) status="" ;;
+                0) status="" ;;
+            esac
+        fi
+        echo "$status $capacity"
+    done
+else
+    exit 1
+fi
