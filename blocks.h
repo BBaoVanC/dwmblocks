@@ -1,5 +1,6 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
+	{ "",		"torrent.block",	20,			3 },
 	{ " ",		"cpu.block",		2,			8 },
 	{ " ",		"memory.block",		2,			9 },
 	{ " ",		"keymap.block",		0,			2 },
