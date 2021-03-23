@@ -12,6 +12,6 @@ transmission-remote -l | grep % |
 		sort -h | uniq -c | awk '{print $3 $1}' | paste -sd ' ' -
 
 case $BUTTON in
-	1) setsid -f "$TERMINAL" -e tremc ;;
-	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+	1) setsid -f "$TERMINAL" -c "st-floating" -e tremc ;;
+	6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac

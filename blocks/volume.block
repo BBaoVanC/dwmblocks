@@ -1,9 +1,9 @@
 #!/bin/sh
 
 case $BUTTON in
-    1) audioctl toggle & ;;
-    3) st -c st-floating -e pulsemixer & ;;
-    6) st -e "$EDITOR" "$0" & ;;
+    1) setsid -f audioctl toggle ;;
+    3) setsid -f "$TERMINAL" -c "st-floating" -e pulsemixer ;;
+    6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
 vol=$(pamixer --get-volume)

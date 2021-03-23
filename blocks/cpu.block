@@ -11,8 +11,8 @@
 cache=/tmp/cpubarscache
 
 case $BUTTON in
-    1) st -c "st-floating" -e htop -s PERCENT_CPU & ;;
-    6) st -e "$EDITOR" "$0" & ;;
+    1) setsid -f "$TERMINAL" -c "st-floating" -e htop -s PERCENT_CPU ;;
+    6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
 # id total idle

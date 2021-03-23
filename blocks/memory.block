@@ -1,8 +1,8 @@
 #!/bin/sh
 
 case $BUTTON in
-    1) st -c "st-floating" -e htop -s PERCENT_MEM & ;;
-    6) st -e "$EDITOR" "$0" & ;;
+    1) setsid -f "$TERMINAL" -c "st-floating" -e htop -s PERCENT_MEM ;;
+    6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
 echo "$(free -h | awk '/^Mem/ { print $3"/"$2 }' | sed s/i//g)"
