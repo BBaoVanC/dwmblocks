@@ -2,10 +2,12 @@
 # See https://github.com/LukeSmithxyz/voidrice/blob/219ea40fe99d3b64d32532ef826cb6c2ce12feac/.local/bin/statusbar/sb-torrent
 
 output=$(transmission-remote -l)
-
 [ "$?" != 0 ] && exit 1
 
-echo "$output" | grep % |
+grepped=$(echo "$output" | grep %)
+[ "$?" != 0 ] && exit 1
+
+echo "$grepped" |
 	sed " # The letters are for sorting and will not appear.
 	s/.*Stopped.*/A 🛑/;
 	s/.*Seeding.*/Z 🌱/;
