@@ -10,7 +10,7 @@ case $BUTTON in
                 setxkbmap -layout us && sigdwmblocks 2 ;;
         esac
         ;;
-    6) setsid -f st -e "$EDITOR" "$0" ;;
+    6) setsid -f kitty "$EDITOR" "$0" ;;
 esac
 
 echo "$(xkblayout-state print '%e')"

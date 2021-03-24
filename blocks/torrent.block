@@ -18,6 +18,6 @@ echo "$grepped" |
 		sort -h | uniq -c | awk '{print $3 $1}' | paste -sd ' ' -
 
 case $BUTTON in
-	1) setsid -f st -c "st-floating" -e tremc ;;
-	6) setsid -f st -e "$EDITOR" "$0" ;;
+	1) setsid -f kitty --class "st-floating" tremc ;;
+	6) setsid -f kitty "$EDITOR" "$0" ;;
 esac

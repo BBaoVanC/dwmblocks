@@ -1,7 +1,7 @@
 #!/bin/sh
 
 case $BUTTON in
-    6) setsid -f st -e "$EDITOR" "$0" ;;
+    6) setsid -f kitty "$EDITOR" "$0" ;;
 esac
 
 echo "$(date '+%a %F %r')"

@@ -2,8 +2,8 @@
 
 case $BUTTON in
     1) setsid -f audioctl toggle ;;
-    3) setsid -f st -c "st-floating" -e pulsemixer ;;
-    6) setsid -f st -e "$EDITOR" "$0" ;;
+    3) setsid -f kitty --class "st-floating" pulsemixer ;;
+    6) setsid -f kitty "$EDITOR" "$0" ;;
 esac
 
 vol=$(pamixer --get-volume)
