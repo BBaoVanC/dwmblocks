@@ -8,11 +8,23 @@ if [ -e /sys/class/power_supply/BAT?* ]; then
     for battery in /sys/class/power_supply/BAT?*; do
         status=$(cat "$battery/status")
         case "$status" in
-            "Full") status="" ;;
-            "Discharging") status="" ;;
-            "Charging") status="" ;;
-            "Not charging") status="" ;;
-            "Unknown") status="" ;;
+            "Full")
+                status=""
+                ;;
+            "Discharging")
+                status=""
+                ;;
+            "Charging")
+                status=""
+                ;;
+            "Not charging")
+                status=""
+                statusprefix="!"
+                ;;
+            "Unknown")
+                status=""
+                statusprefix="?"
+                ;;
         esac
         capacity=$(cat "$battery/capacity")
         if [ "$status" = "" ]; then
@@ -30,7 +42,7 @@ if [ -e /sys/class/power_supply/BAT?* ]; then
                 0) status="" ;;
             esac
         fi
-        echo "$status $capacity"
+        echo "$status $statusprefix$capacity"
     done
 else
     exit 1
