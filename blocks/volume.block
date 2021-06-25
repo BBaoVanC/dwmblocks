@@ -2,7 +2,7 @@
 
 case $BUTTON in
     1) setsid -f audioctl toggle ;;
-    3) setsid -f kitty --class "st-floating" pulsemixer ;;
+    3) setsid -f kitty --class "kitty-floating" pulsemixer ;;
     6) setsid -f kitty "$EDITOR" "$0" ;;
 esac
 

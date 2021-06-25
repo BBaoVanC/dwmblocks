@@ -11,7 +11,7 @@
 cache=/tmp/cpubarscache
 
 case $BUTTON in
-    1) setsid -f kitty --class "st-floating" htop -s PERCENT_CPU ;;
+    1) setsid -f kitty --class "kitty-floating" htop -s PERCENT_CPU ;;
     6) setsid -f kitty "$EDITOR" "$0" ;;
 esac
 
